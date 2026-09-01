@@ -15,7 +15,6 @@
   --accent: #4ade80;
   --accent-dim: rgba(74,222,128,0.12);
   --accent2: #60a5fa;
-  --accent2-dim: rgba(96,165,250,0.12);
   --text: #e8eaf0;
   --text2: #8b90a8;
   --muted: #4a4f6a;
@@ -42,7 +41,7 @@ body {
 
 /* HEADER */
 .header {
-  margin-bottom: 20px;
+  margin-bottom: 28px;
   text-align: center;
 }
 
@@ -66,40 +65,6 @@ body {
   color: var(--accent);
 }
 
-/* TABS */
-.tabs {
-  display: flex;
-  gap: 6px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 4px;
-  margin-bottom: 16px;
-}
-
-.tab-btn {
-  flex: 1;
-  padding: 10px 8px;
-  background: transparent;
-  border: none;
-  border-radius: 9px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: var(--text2);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.tab-btn.active {
-  background: var(--accent);
-  color: #0f1117;
-}
-
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
-
 /* CARD */
 .card {
   background: var(--surface);
@@ -108,28 +73,6 @@ body {
   padding: 24px;
   margin-bottom: 12px;
 }
-
-.provider-title {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: var(--text);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.provider-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.provider-dot.a { background: var(--accent2); }
-.provider-dot.b { background: var(--accent); }
 
 /* INPUTS */
 .field {
@@ -191,6 +134,45 @@ input[type="number"]:focus {
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-bottom: 18px;
+}
+
+/* SLIDER */
+.slider-field {
+  margin-bottom: 18px;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.slider-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background: var(--border);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(74,222,128,0.2);
 }
 
 /* DIVIDER */
@@ -395,148 +377,25 @@ input[type="number"]:focus {
   margin-top: 6px;
 }
 
-/* COMPARE TAB — SEGMENT BAR */
-.cmp-summary-line {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--text2);
-  text-align: center;
-  margin-bottom: 16px;
-  line-height: 1.6;
-}
-
-.cmp-summary-line b { color: #fff; }
-
-.bar-wrap { margin-bottom: 16px; }
-
-.bar {
-  display: flex;
-  width: 100%;
-  height: 34px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.bar-seg {
-  height: 100%;
-  display: flex;
+/* CROSS-APP NAV LINK */
+.app-link {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  font-weight: 700;
-  color: #0f1117;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.bar-seg.a { background: var(--accent2); }
-.bar-seg.b { background: var(--accent); }
-.bar-seg.tie { background: var(--muted); }
-
-.bar-ticks {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 6px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  color: var(--text2);
-}
-
-.cmp-legend {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-bottom: 18px;
+  gap: 6px;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
-  color: var(--text2);
-}
-
-.cmp-legend-item { display: flex; align-items: center; gap: 6px; }
-
-.cmp-legend-dot { width: 9px; height: 9px; border-radius: 3px; }
-.cmp-legend-dot.a { background: var(--accent2); }
-.cmp-legend-dot.b { background: var(--accent); }
-
-.cmp-ranges {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.cmp-range-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-size: 13px;
-}
-
-.cmp-range-pct {
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 700;
-  color: var(--text2);
-  font-size: 12px;
-}
-
-.cmp-range-winner {
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 700;
-  font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-
-.cmp-range-winner.a { background: var(--accent2-dim); color: var(--accent2); }
-.cmp-range-winner.b { background: var(--accent-dim); color: var(--accent); }
-.cmp-range-winner.tie { background: rgba(139,144,168,0.15); color: var(--text2); }
-
-/* SPECIFIC CHECK RESULT */
-.cmp-check-result {
-  display: none;
-}
-
-.cmp-check-result.show { display: block; }
-
-.cmp-check-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.cmp-check-row:last-of-type { border-bottom: none; }
-
-.cmp-check-name {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--text2);
-}
-
-.cmp-check-cost {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.cmp-check-cost.win { color: var(--accent); }
-
-.cmp-check-verdict {
-  text-align: center;
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px dashed var(--border);
-  font-size: 13px;
-  color: var(--accent);
   font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--accent2);
+  background: rgba(96,165,250,0.1);
+  border: 1px solid rgba(96,165,250,0.28);
+  padding: 7px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-top: 14px;
 }
+
+.app-link:hover { filter: brightness(1.2); }
 </style>
 </head>
 <body>
@@ -545,216 +404,83 @@ input[type="number"]:focus {
   <div class="header">
     <div class="eyebrow">EV Charging</div>
     <div class="title">คำนวณ<span>ค่าชาร์จ</span></div>
+    <a class="app-link" href="https://xxgui2enxx.github.io/nevo-q05-maintenance/">🔧 ตารางบำรุงรักษา NEVO Q05</a>
   </div>
 
-  <div class="tabs">
-    <button class="tab-btn active" id="tabBtn1" onclick="switchTab(1)">คำนวณค่าชาร์จ</button>
-    <button class="tab-btn" id="tabBtn2" onclick="switchTab(2)">เปรียบเทียบค่าชาร์จ</button>
-  </div>
-
-  <!-- ===================== TAB 1: CALCULATOR ===================== -->
-  <div class="tab-panel active" id="tabPanel1">
-
-    <!-- INPUT CARD -->
-    <div class="card">
-
-      <!-- Battery Size -->
-      <div class="field">
-        <label class="field-label">ขนาดแบต</label>
-        <div class="input-wrap">
-          <input type="number" id="batterySize" value="51.9" min="1" max="200" step="0.1">
-          <span class="unit">kWh</span>
-        </div>
-      </div>
-
-      <!-- SOC -->
-      <div class="soc-row">
-        <div class="field" style="margin-bottom:0">
-          <label class="field-label">ก่อนชาร์จ</label>
-          <div class="input-wrap">
-            <input type="number" id="socBefore" value="" min="0" max="100" placeholder="0" oninput="syncSlider('before')">
-            <span class="unit">%</span>
-          </div>
-        </div>
-        <div class="field" style="margin-bottom:0">
-          <label class="field-label">หลังชาร์จ</label>
-          <div class="input-wrap">
-            <input type="number" id="socAfter" value="" min="0" max="100" placeholder="100" oninput="syncSlider('after')">
-            <span class="unit">%</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Price -->
-      <div class="field">
-        <label class="field-label">ราคาต่อหน่วย</label>
-        <div class="input-wrap">
-          <input type="number" id="pricePerKwh" value="5.9" min="0" step="0.1">
-          <span class="unit">฿/kWh</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ERROR -->
-    <div class="error-msg" id="errorMsg"></div>
-
-    <!-- CALC BTN -->
-    <button class="calc-btn" onclick="calculate()">⚡ คำนวณ</button>
-
-    <!-- RESULT -->
-    <div class="result-card" id="resultCard">
-      <div class="result-grid">
-        <div class="result-item">
-          <div class="result-label">SOC ที่ชาร์จ</div>
-          <div class="result-value" id="resSocDiff">—</div>
-          <div class="result-unit">%</div>
-        </div>
-        <div class="result-item">
-          <div class="result-label">พลังงานที่ได้</div>
-          <div class="result-value" id="resKwh">—</div>
-          <div class="result-unit">kWh</div>
-        </div>
-      </div>
-      <div class="result-main">
-        <div class="result-main-label">ค่าใช้จ่าย</div>
-        <div class="result-main-value" id="resCost">—<span> บาท</span></div>
-      </div>
-    </div>
-
-    <!-- RESET -->
-    <button class="reset-btn" onclick="resetForm()">รีเซ็ต</button>
-
-    <!-- HISTORY -->
-    <div class="history-card" id="historyCard">
-      <div class="history-title">// ประวัติการคำนวณ</div>
-      <div id="historyList"></div>
-    </div>
-
-  </div>
-
-  <!-- ===================== TAB 2: COMPARE PROVIDERS ===================== -->
-  <div class="tab-panel" id="tabPanel2">
+  <!-- INPUT CARD -->
+  <div class="card">
 
     <!-- Battery Size -->
-    <div class="card">
+    <div class="field">
+      <label class="field-label">ขนาดแบต</label>
+      <div class="input-wrap">
+        <input type="number" id="batterySize" value="51.9" min="1" max="200" step="0.1">
+        <span class="unit">kWh</span>
+      </div>
+    </div>
+
+    <!-- SOC -->
+    <div class="soc-row">
       <div class="field" style="margin-bottom:0">
-        <label class="field-label">ขนาดแบต</label>
+        <label class="field-label">ก่อนชาร์จ</label>
         <div class="input-wrap">
-          <input type="number" id="cmpBattery" value="51.9" min="1" max="200" step="0.1">
-          <span class="unit">kWh</span>
+          <input type="number" id="socBefore" value="" min="0" max="100" placeholder="0" oninput="syncSlider('before')">
+          <span class="unit">%</span>
         </div>
       </div>
-    </div>
-
-    <!-- Provider A -->
-    <div class="card">
-      <div class="provider-title"><span class="provider-dot a"></span>เจ้า A</div>
-      <div class="field">
-        <label class="field-label">ราคาต่อหน่วย</label>
+      <div class="field" style="margin-bottom:0">
+        <label class="field-label">หลังชาร์จ</label>
         <div class="input-wrap">
-          <input type="number" id="priceA" value="5.9" min="0" step="0.1">
-          <span class="unit">฿/kWh</span>
-        </div>
-      </div>
-      <div class="soc-row" style="margin-bottom:0">
-        <div class="field" style="margin-bottom:0">
-          <label class="field-label">ส่วนลด</label>
-          <div class="input-wrap">
-            <input type="number" id="discA" value="10" min="0" step="1">
-            <span class="unit">฿</span>
-          </div>
-        </div>
-        <div class="field" style="margin-bottom:0">
-          <label class="field-label">เมื่อยอดเกิน</label>
-          <div class="input-wrap">
-            <input type="number" id="threshA" value="100" min="0" step="1">
-            <span class="unit">฿</span>
-          </div>
+          <input type="number" id="socAfter" value="" min="0" max="100" placeholder="100" oninput="syncSlider('after')">
+          <span class="unit">%</span>
         </div>
       </div>
     </div>
 
-    <!-- Provider B -->
-    <div class="card">
-      <div class="provider-title"><span class="provider-dot b"></span>เจ้า B</div>
-      <div class="field">
-        <label class="field-label">ราคาต่อหน่วย</label>
-        <div class="input-wrap">
-          <input type="number" id="priceB" value="5.5" min="0" step="0.1">
-          <span class="unit">฿/kWh</span>
-        </div>
-      </div>
-      <div class="soc-row" style="margin-bottom:0">
-        <div class="field" style="margin-bottom:0">
-          <label class="field-label">ส่วนลด</label>
-          <div class="input-wrap">
-            <input type="number" id="discB" value="0" min="0" step="1">
-            <span class="unit">฿</span>
-          </div>
-        </div>
-        <div class="field" style="margin-bottom:0">
-          <label class="field-label">เมื่อยอดเกิน</label>
-          <div class="input-wrap">
-            <input type="number" id="threshB" value="0" min="0" step="1">
-            <span class="unit">฿</span>
-          </div>
-        </div>
+    <!-- Price -->
+    <div class="field">
+      <label class="field-label">ราคาต่อหน่วย</label>
+      <div class="input-wrap">
+        <input type="number" id="pricePerKwh" value="5.9" min="0" step="0.1">
+        <span class="unit">฿/kWh</span>
       </div>
     </div>
 
-    <div class="error-msg" id="cmpErrorMsg"></div>
+  </div>
 
-    <button class="calc-btn" onclick="compareProviders()">⚡ เปรียบเทียบ</button>
+  <!-- ERROR -->
+  <div class="error-msg" id="errorMsg"></div>
 
-    <!-- RANGE RESULT -->
-    <div class="result-card" id="cmpResultCard">
-      <div class="cmp-summary-line" id="cmpSummaryLine"></div>
-      <div class="cmp-legend">
-        <div class="cmp-legend-item"><span class="cmp-legend-dot a"></span>เจ้า A คุ้ม</div>
-        <div class="cmp-legend-item"><span class="cmp-legend-dot b"></span>เจ้า B คุ้ม</div>
+  <!-- CALC BTN -->
+  <button class="calc-btn" onclick="calculate()">⚡ คำนวณ</button>
+
+  <!-- RESULT -->
+  <div class="result-card" id="resultCard">
+    <div class="result-grid">
+      <div class="result-item">
+        <div class="result-label">SOC ที่ชาร์จ</div>
+        <div class="result-value" id="resSocDiff">—</div>
+        <div class="result-unit">%</div>
       </div>
-      <div class="bar-wrap">
-        <div class="bar" id="cmpBar"></div>
-        <div class="bar-ticks"><span>0%</span><span>ระดับแบตที่ชาร์จ</span><span>100%</span></div>
+      <div class="result-item">
+        <div class="result-label">พลังงานที่ได้</div>
+        <div class="result-value" id="resKwh">—</div>
+        <div class="result-unit">kWh</div>
       </div>
-      <div class="cmp-ranges" id="cmpRanges"></div>
     </div>
-
-    <!-- SPECIFIC CHECK -->
-    <div class="card" style="margin-top: 4px;">
-      <div class="provider-title" style="margin-bottom: 16px;">เช็คเฉพาะรอบนี้</div>
-      <div class="soc-row">
-        <div class="field" style="margin-bottom:0">
-          <label class="field-label">ก่อนชาร์จ</label>
-          <div class="input-wrap">
-            <input type="number" id="cmpSocBefore" value="" min="0" max="100" placeholder="0">
-            <span class="unit">%</span>
-          </div>
-        </div>
-        <div class="field" style="margin-bottom:0">
-          <label class="field-label">หลังชาร์จ</label>
-          <div class="input-wrap">
-            <input type="number" id="cmpSocAfter" value="" min="0" max="100" placeholder="100">
-            <span class="unit">%</span>
-          </div>
-        </div>
-      </div>
-      <button class="calc-btn" style="margin-top: 18px; margin-bottom: 0;" onclick="checkSpecific()">เช็ครอบนี้</button>
+    <div class="result-main">
+      <div class="result-main-label">ค่าใช้จ่าย</div>
+      <div class="result-main-value" id="resCost">—<span> บาท</span></div>
     </div>
+  </div>
 
-    <div class="result-card cmp-check-result" id="cmpCheckResult">
-      <div class="cmp-check-row">
-        <span class="cmp-check-name"><span class="provider-dot a" style="display:inline-block"></span> เจ้า A</span>
-        <span class="cmp-check-cost" id="checkCostA">—</span>
-      </div>
-      <div class="cmp-check-row">
-        <span class="cmp-check-name"><span class="provider-dot b" style="display:inline-block"></span> เจ้า B</span>
-        <span class="cmp-check-cost" id="checkCostB">—</span>
-      </div>
-      <div class="cmp-check-verdict" id="checkVerdict">—</div>
-    </div>
+  <!-- RESET -->
+  <button class="reset-btn" onclick="resetForm()">รีเซ็ต</button>
 
+  <!-- HISTORY -->
+  <div class="history-card" id="historyCard">
+    <div class="history-title">// ประวัติการคำนวณ</div>
+    <div id="historyList"></div>
   </div>
 
 </div>
@@ -762,15 +488,6 @@ input[type="number"]:focus {
 <script>
 let history = [];
 
-/* ===================== TAB SWITCHING ===================== */
-function switchTab(n) {
-  document.getElementById('tabPanel1').classList.toggle('active', n === 1);
-  document.getElementById('tabPanel2').classList.toggle('active', n === 2);
-  document.getElementById('tabBtn1').classList.toggle('active', n === 1);
-  document.getElementById('tabBtn2').classList.toggle('active', n === 2);
-}
-
-/* ===================== TAB 1: CALCULATOR ===================== */
 function calculate() {
   const battery = parseFloat(document.getElementById('batterySize').value);
   const before = parseFloat(document.getElementById('socBefore').value);
@@ -846,146 +563,9 @@ function renderHistory() {
   `).join('');
 }
 
-/* ===================== TAB 2: COMPARE PROVIDERS ===================== */
-function cmpCost(kwh, price, disc, thresh) {
-  let raw = kwh * price;
-  if (disc > 0 && raw > thresh) raw -= disc;
-  return Math.max(raw, 0);
-}
-
-function cmpShowError(msg) {
-  const el = document.getElementById('cmpErrorMsg');
-  el.textContent = '⚠ ' + msg;
-  el.classList.add('show');
-  document.getElementById('cmpResultCard').classList.remove('show');
-}
-
-function compareProviders() {
-  const battery = parseFloat(document.getElementById('cmpBattery').value);
-  const priceA = parseFloat(document.getElementById('priceA').value);
-  const discA = parseFloat(document.getElementById('discA').value) || 0;
-  const threshA = parseFloat(document.getElementById('threshA').value) || 0;
-  const priceB = parseFloat(document.getElementById('priceB').value);
-  const discB = parseFloat(document.getElementById('discB').value) || 0;
-  const threshB = parseFloat(document.getElementById('threshB').value) || 0;
-
-  const errEl = document.getElementById('cmpErrorMsg');
-
-  if (isNaN(battery) || battery <= 0) { cmpShowError('กรุณากรอกขนาดแบตให้ถูกต้อง'); return; }
-  if (isNaN(priceA) || priceA <= 0) { cmpShowError('กรุณากรอกราคาต่อหน่วยของเจ้า A'); return; }
-  if (isNaN(priceB) || priceB <= 0) { cmpShowError('กรุณากรอกราคาต่อหน่วยของเจ้า B'); return; }
-
-  errEl.classList.remove('show');
-
-  // scan across 0-100% of battery in fine steps, find winner segments
-  const steps = 1000;
-  let segments = [];
-  let prevWinner = null;
-  let segStart = 0;
-
-  for (let i = 0; i <= steps; i++) {
-    const frac = i / steps;
-    const kwh = Math.max(frac * battery, 0.001);
-    const costA = cmpCost(kwh, priceA, discA, threshA);
-    const costB = cmpCost(kwh, priceB, discB, threshB);
-    const diff = costA - costB;
-    let winner = Math.abs(diff) < Math.max(0.01, battery * 0.0001) ? 'tie' : (diff < 0 ? 'a' : 'b');
-
-    if (winner !== prevWinner) {
-      if (prevWinner !== null) segments.push({ winner: prevWinner, from: segStart, to: frac });
-      segStart = frac;
-      prevWinner = winner;
-    }
-  }
-  segments.push({ winner: prevWinner, from: segStart, to: 1 });
-
-  // merge out negligible tie slivers into neighboring segment
-  segments = segments.filter(s => (s.to - s.from) > 0.002);
-
-  // totals per winner (share of the 0-100% range)
-  let totals = { a: 0, b: 0, tie: 0 };
-  segments.forEach(s => totals[s.winner] += (s.to - s.from));
-  const overall = totals.a >= totals.b ? 'A' : 'B';
-  const overallColor = totals.a >= totals.b ? 'var(--accent2)' : 'var(--accent)';
-
-  document.getElementById('cmpSummaryLine').innerHTML =
-    'โดยรวม เจ้า <b style="color:' + overallColor + '">' + overall + '</b> คุ้มกว่าในช่วงการชาร์จส่วนใหญ่ (' +
-    (Math.max(totals.a, totals.b) * 100).toFixed(0) + '% ของทุกระดับการชาร์จที่เป็นไปได้)';
-
-  // bar
-  const bar = document.getElementById('cmpBar');
-  bar.innerHTML = segments.map(s => {
-    const widthPct = (s.to - s.from) * 100;
-    const label = widthPct > 8 ? (s.winner === 'tie' ? '=' : s.winner.toUpperCase()) : '';
-    return '<div class="bar-seg ' + s.winner + '" style="width:' + widthPct.toFixed(2) + '%">' + label + '</div>';
-  }).join('');
-
-  // range list
-  const rangesEl = document.getElementById('cmpRanges');
-  rangesEl.innerHTML = segments.map(s => {
-    const fromPct = (s.from * 100).toFixed(0);
-    const toPct = (s.to * 100).toFixed(0);
-    const winnerLabel = s.winner === 'tie' ? 'เท่ากัน' : ('เจ้า ' + s.winner.toUpperCase() + ' คุ้มกว่า');
-    return '<div class="cmp-range-item">' +
-      '<span class="cmp-range-pct">' + fromPct + '% – ' + toPct + '%</span>' +
-      '<span class="cmp-range-winner ' + s.winner + '">' + winnerLabel + '</span>' +
-      '</div>';
-  }).join('');
-
-  document.getElementById('cmpResultCard').classList.add('show');
-}
-
-function checkSpecific() {
-  const battery = parseFloat(document.getElementById('cmpBattery').value);
-  const before = parseFloat(document.getElementById('cmpSocBefore').value);
-  const after = parseFloat(document.getElementById('cmpSocAfter').value);
-  const priceA = parseFloat(document.getElementById('priceA').value);
-  const discA = parseFloat(document.getElementById('discA').value) || 0;
-  const threshA = parseFloat(document.getElementById('threshA').value) || 0;
-  const priceB = parseFloat(document.getElementById('priceB').value);
-  const discB = parseFloat(document.getElementById('discB').value) || 0;
-  const threshB = parseFloat(document.getElementById('threshB').value) || 0;
-
-  if (isNaN(battery) || battery <= 0) { cmpShowError('กรุณากรอกขนาดแบตให้ถูกต้อง'); return; }
-  if (isNaN(before) || before < 0 || before > 100 || isNaN(after) || after < 0 || after > 100) {
-    cmpShowError('กรุณากรอก % ก่อน/หลังชาร์จให้ถูกต้อง (0–100)');
-    return;
-  }
-  if (after <= before) { cmpShowError('% หลังชาร์จต้องมากกว่า % ก่อนชาร์จ'); return; }
-  if (isNaN(priceA) || priceA <= 0 || isNaN(priceB) || priceB <= 0) {
-    cmpShowError('กรุณากรอกราคาต่อหน่วยของทั้งสองเจ้า');
-    return;
-  }
-
-  document.getElementById('cmpErrorMsg').classList.remove('show');
-
-  const kwh = battery * (after - before) / 100;
-  const costA = cmpCost(kwh, priceA, discA, threshA);
-  const costB = cmpCost(kwh, priceB, discB, threshB);
-
-  const aWins = costA < costB - 0.005;
-  const bWins = costB < costA - 0.005;
-
-  document.getElementById('checkCostA').textContent = costA.toFixed(2) + ' ฿';
-  document.getElementById('checkCostA').className = 'cmp-check-cost' + (aWins ? ' win' : '');
-  document.getElementById('checkCostB').textContent = costB.toFixed(2) + ' ฿';
-  document.getElementById('checkCostB').className = 'cmp-check-cost' + (bWins ? ' win' : '');
-
-  const verdictEl = document.getElementById('checkVerdict');
-  if (aWins) {
-    verdictEl.textContent = 'ชาร์จ ' + kwh.toFixed(2) + ' kWh — เจ้า A ถูกกว่า ' + (costB - costA).toFixed(2) + ' บาท';
-  } else if (bWins) {
-    verdictEl.textContent = 'ชาร์จ ' + kwh.toFixed(2) + ' kWh — เจ้า B ถูกกว่า ' + (costA - costB).toFixed(2) + ' บาท';
-  } else {
-    verdictEl.textContent = 'ชาร์จ ' + kwh.toFixed(2) + ' kWh — ราคาเท่ากันทั้งสองเจ้า';
-  }
-
-  document.getElementById('cmpCheckResult').classList.add('show');
-}
-
-// Enter key triggers calculate (tab 1 only, to avoid clashing with tab 2 fields)
+// Enter key triggers calculate
 document.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && document.getElementById('tabPanel1').classList.contains('active')) calculate();
+  if (e.key === 'Enter') calculate();
 });
 </script>
 </body>
